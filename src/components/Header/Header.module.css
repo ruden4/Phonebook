@@ -1,0 +1,64 @@
+.header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff5e;
+    padding: 20px 30px;
+}
+.bookTitle {
+    font-weight: 300;
+    font-size: 42px;
+    text-align: center;
+    color: rgb(51, 51, 51);
+}
+
+.navigationList {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navigationItem:last-child {
+    border-left: 1px solid rgb(51, 51, 51);
+}
+
+.navigationLink {
+    text-decoration: none;
+    color: inherit;
+    padding: 24px 10px;
+    font-weight: 200;
+    font-size: 42px;
+    text-align: center;
+    color: rgb(51, 51, 51);
+}
+
+.userWrap {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 5px;
+height: 100%;
+padding: 10px;
+}
+
+.userEmail {
+ font-weight: 200;
+}
+
+.logOutBtn {
+background-color: transparent;
+width: 100%;
+border: 1px solid rgb(51, 51, 51);
+cursor: pointer;
+font-weight: 200;
+transition-duration: 300ms;
+}
+
+.logOutBtn:hover {
+    background-color: rgb(51, 51, 51);
+    color: #ffffffbf;
+    border-radius: 10px;
+}
