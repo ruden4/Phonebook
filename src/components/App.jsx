@@ -4,6 +4,8 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Header } from './Header/Header';
 import { HomePage } from './HomePage/HomePage';
+import { LoginForm } from './LogInForm/LoginForm';
+import { RegisterForm } from './RegisterForm/RegisterForm';
 
 
 export const App = () => {
@@ -12,10 +14,12 @@ export const App = () => {
 <div className={css.container}>
         <Header />
         <HomePage/>
-        <ContactForm/>
-        <h2 className={css.contactsList}>Contacts</h2>
-        <Filter />
-        <ContactList />
+        {/* <RegisterForm /> */}
+        {/* <LoginForm/> */}
+        {/* <ContactForm/> */}
+        {/* <h2 className={css.contactsList}>Contacts</h2> */}
+        {/* <Filter /> */}
+        {/* <ContactList /> */}
       </div>
   );
 };
