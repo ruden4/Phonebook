@@ -2,12 +2,12 @@ import css from "./Header.module.css";
 
 import { HeaderNav } from "./HeaderNav";
 import { HeaderUser } from "./HeaderUser";
+import Logo from "./Logo";
 
 export function Header() {
     return (
         <div className={css.header}>
-            <h1 className={css.bookTitle}>Phonebook
-                <span className={css.copyRight}>© 2023, by ruden4</span></h1>
+            <Logo/>
             <HeaderNav/>
             <HeaderUser/>
         </div>

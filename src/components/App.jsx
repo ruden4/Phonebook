@@ -1,25 +1,24 @@
+import { Routes, Route } from "react-router-dom";
 import css from './App.module.css';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { Header } from './Header/Header';
-import { HomePage } from './HomePage/HomePage';
-import { LoginForm } from './LogInForm/LoginForm';
-import { RegisterForm } from './RegisterForm/RegisterForm';
 
+import Layout from './Layout';
+import Home from './Pages/Home';
+import Contacts from './Pages/Contacts';
+import LogIn from './Pages/LogIn';
+import Register from './Pages/Register';
 
 export const App = () => {
 
   return (
-<div className={css.container}>
-        <Header />
-        <HomePage/>
-        {/* <RegisterForm /> */}
-        {/* <LoginForm/> */}
-        {/* <ContactForm/> */}
-        {/* <h2 className={css.contactsList}>Contacts</h2> */}
-        {/* <Filter /> */}
-        {/* <ContactList /> */}
+    <div className={css.container}>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="login" element={<LogIn />} />
+          <Route path="register" element={<Register/>} />
+        </Route>
+      </Routes>
       </div>
   );
 };
