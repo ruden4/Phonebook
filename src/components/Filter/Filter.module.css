@@ -1,21 +1,28 @@
-.input {
-    width: 100%;
-    height: 45px;
-    padding: 20px;
-    background-color: transparent;
-    border: 1px solid;
-    border-color:rgb(51, 51, 51);
-    border-radius: 10px;
-    outline: transparent;
-    transition-duration: 300ms;
+.container {
+    padding-top: 20px;
+    padding-left: 400px;
+    padding-right: 400px;
 }
-.input:hover,
-.input:focus {
-    background-color: #ffffffa0;
-    border-color: #ffffffa0;
+.input {
+    transition-duration: 300ms;
+    width: 80%;
+    outline: none;
+    border: 1px solid transparent;
+    background-color: #ffffff5e;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-weight: 200;
+}
+
+.input:hover {
+    border-color: rgba(0, 0, 0, 0.582);
 }
 
 .label {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 200;
     width: 100%;
 }

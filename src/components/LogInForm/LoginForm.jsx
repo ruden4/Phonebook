@@ -11,6 +11,8 @@ export function LoginForm() {
     };
 
     return (
+        <div className={css.formWrap}>
+        <h2 className={css.formTitle}>Log In</h2>
         <form className={css.form} onSubmit={handleSubmit}> 
                 <label className={css.label}>
                     E-mail
@@ -33,7 +35,8 @@ export function LoginForm() {
                         required
                     />
                 </label>
-                <button className={css.addBtn}>Log In</button>
+                <button className={css.submit}>Log In</button>
             </form>
+            </div>
     )
 }

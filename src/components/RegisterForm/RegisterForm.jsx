@@ -1,4 +1,4 @@
-import css from './RegisterForm.module.css'
+import css from '../LogInForm/LoginForm.module.css'
 
 export function RegisterForm() {
 
@@ -11,8 +11,10 @@ export function RegisterForm() {
     };
 
     return (
+        <div className={css.formWrap}>
+        <h2 className={css.formTitle}>Create new account</h2>
         <form className={css.form} onSubmit={handleSubmit}> 
-                <label className={css.label}>
+                 <label className={css.label}>
                     Login
                     <input
                         onChange={handleInput}
@@ -23,28 +25,29 @@ export function RegisterForm() {
                         required
                     />
                  </label> 
-                 <label className={css.label}>E-mail
+                <label className={css.label}>
+                    E-mail
                     <input
                         onChange={handleInput}
-                        // value={number}
+                        // value={name}
                         className={css.input}
                         type="email"
                         name="email"
                         required
                     />
-            </label>
-             <label className={css.label}>
-                    Password
+                 </label> 
+                 <label className={css.label}>Password
                     <input
                         onChange={handleInput}
-                        // value={name}
+                        // value={number}
                         className={css.input}
                         type="password"
                         name="password"
                         required
                     />
-                 </label> 
-                <button className={css.addBtn}>Register</button>
+                </label>
+                <button className={css.submit}>Log In</button>
             </form>
+            </div>
     )
 }
