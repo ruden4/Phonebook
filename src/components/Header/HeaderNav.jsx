@@ -14,11 +14,16 @@ export function HeaderNav() {
     text-align: center;
     color: rgb(51, 51, 51);
     transition-duration: 300ms;
+    border-radius: 10px;
   &.active {
-    font-weight: 600;;
+    font-weight: 600;
+    background-color: rgb(51, 51, 51);
+    color: #ffffffbf;
+    scale: 1.1;
   }
   &:hover {
     scale: 1.1;
+
   }
 `;
 
