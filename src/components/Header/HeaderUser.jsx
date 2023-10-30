@@ -16,7 +16,7 @@ export function HeaderUser() {
     const isLoggedIn = useSelector(getIsLoggedIn);
     
     return (
-    <div className={css.userWrap}>
+    <div className={`${css.userWrap} animate__animated animate__flipInX`}>
             <p className={css.userEmail}>{name}</p>
             {isLoggedIn ? <button className={css.logOutBtn}
                                     onClick={handleLogOut}

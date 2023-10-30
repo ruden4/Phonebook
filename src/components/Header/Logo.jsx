@@ -2,7 +2,7 @@ import css from './Header.module.css'
 
 const Logo = () => {
     return (
-        <h1 className={css.bookTitle}>Phonebook
+        <h1 className={`${css.bookTitle} animate__animated animate__flipInX`}>Phonebook
             <a href="https://github.com/ruden4"
                 rel='noreferrer'
                 target='_blank'

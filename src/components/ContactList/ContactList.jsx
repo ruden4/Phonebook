@@ -23,13 +23,14 @@ export const ContactList = () => {
     	const filteredContacts = contacts.filter(
 		(contact) => contact.name.toLowerCase().includes(filter.toLowerCase()));
     
-    return (
- <ul className={css.contactsList}>
+  return (
+      
+ <ul className={`${css.contactsList} animate__animated animate__fadeInUp`}>
       {filteredContacts.length > 0 ? (
         filteredContacts.map(({ id, name, number}) => {
           return (
             <li key={id} className={css.listItem}>
-              <div className={css.infoWrap}>
+              <div className={`${css.infoWrap} animate__animated animate__fadeInUp`}>
                         <h2 className={css.contact}>{name}</h2>
                         <p className={css.contact}>Phone: {number}</p>
               </div>
@@ -42,7 +43,7 @@ export const ContactList = () => {
                     </li>
         );
         })
-  )  : 'No results'}
+  )  : <li className={css.message}>There are no contacts yet...</li>}
     </ul>
     )
 };

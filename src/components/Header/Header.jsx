@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 export function Header() {
     return (
-        <div className={css.header}>
+        <div className={`${css.header} animate__animated animate__fadeInDown`}>
             <Logo/>
             <HeaderNav/>
             <HeaderUser/>
@@ -14,5 +14,3 @@ export function Header() {
         
     )
 }
-
-// export default Header;

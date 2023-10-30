@@ -1,8 +1,8 @@
 import css from './Header.module.css';
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-
-export function HeaderNav() {
+import { useSelector } from 'react-redux';
+import { getIsLoggedIn } from 'redux/selectors';
 
     const StyledLink = styled(NavLink)`
     text-decoration: none;
@@ -27,14 +27,18 @@ export function HeaderNav() {
   }
 `;
 
-    return (
+export function HeaderNav() {
+
+  const isLoggedIn = useSelector(getIsLoggedIn);
+
+  return (
         <nav className={css.navigation}>
-            <ul className={css.navigationList}>
+            {isLoggedIn && <ul className={css.navigationList}>
                 <li className={css.navigationItem}>
                     <StyledLink to="/">Home</StyledLink></li>
                 <li className={css.navigationItem}>
                     <StyledLink to="/contacts">Contacts</StyledLink></li>
-            </ul>
+            </ul>}
         </nav>
     )
 }

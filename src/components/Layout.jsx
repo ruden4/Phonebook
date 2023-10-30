@@ -1,6 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import styled from "styled-components";
+
 
 import css from './App.module.css'
 import { Header } from "./Header/Header";

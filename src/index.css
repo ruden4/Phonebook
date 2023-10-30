@@ -74,3 +74,7 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.animate__animated.animate__flipInX {
+  --animate-delay: 2000ms;
+}

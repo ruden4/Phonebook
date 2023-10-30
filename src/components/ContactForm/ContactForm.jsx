@@ -47,7 +47,7 @@ export function ContactForm() {
     return (
 
         <>
-            <div className={css.wrap}>
+            <div className={`${css.wrap} animate__animated animate__fadeInDown`}>
                 <form className={css.form} onSubmit={handleSubmit}> 
                     <label className={css.label}>
                         Name

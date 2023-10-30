@@ -1,10 +1,16 @@
-import { HomePage } from "components/HomePage/HomePage";
+import { HomePageUnlogged } from "components/HomePage/HomePageUnlogged";
+import { HomePageLogged } from "components/HomePage/HomePageLogged";
+
+import { getIsLoggedIn} from "redux/selectors";
+import { useSelector } from "react-redux";
 
 const Home = () => {
     
+    const loggedIn = useSelector(getIsLoggedIn);
+    
     return (
         <>
-            <HomePage/>
+            {loggedIn ? <HomePageLogged /> : <HomePageUnlogged/>}
         </>
     )
 };
