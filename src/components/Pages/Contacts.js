@@ -1,10 +1,10 @@
-import { Filter } from 'components/Filter/Filter';
 import { ContactList } from '../ContactList/ContactList';
+import { ContactForm } from 'components/ContactForm/ContactForm';
 
 const Contacts = () => {
     return (
         <>
-            <Filter/>
+            <ContactForm/>
             <ContactList />
         </>
     )

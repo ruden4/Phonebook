@@ -1,10 +1,14 @@
 import css from "./LoginForm.module.css";
 
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { login } from "redux/Auth";
 
 export function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const dispatch = useDispatch()
 
     const handleInput = e => {
         const {name, value} = e.currentTarget;
@@ -23,6 +27,7 @@ export function LoginForm() {
     const handleSubmit = e => {
         e.preventDefault();
         const userData = { email, password };
+        dispatch(login(userData));
         console.log(userData)
         e.target.reset();
     }

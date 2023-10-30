@@ -1,11 +1,15 @@
 import css from '../LogInForm/LoginForm.module.css'
 
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/Auth';
 
 export function RegisterForm() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const dispatch = useDispatch();
 
      const handleInput = e => {
         const {name, value} = e.currentTarget;
@@ -27,6 +31,7 @@ export function RegisterForm() {
     const handleSubmit = e => {
         e.preventDefault();
         const userData = { name, email, password };
+        dispatch(register(userData));
         console.log(userData)
         e.target.reset();
     }
@@ -41,7 +46,7 @@ export function RegisterForm() {
                         onChange={handleInput}
                         className={css.input}
                         type="text"
-                        name="login"
+                        name="name"
                         required
                     />
                  </label> 
