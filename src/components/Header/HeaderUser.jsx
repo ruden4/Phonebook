@@ -10,7 +10,6 @@ export function HeaderUser() {
 
     const {name}  = useSelector(getUser);
     const isLoggedIn = useSelector(getIsLoggedIn);
-    console.log((isLoggedIn))
 
     const logoutHandler = () => {
         dispatch(logOut())
