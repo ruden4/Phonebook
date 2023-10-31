@@ -38,7 +38,7 @@ const handleRejectedRefresh = (state, _) => {
 };
 
 const handleRejectedRegisterAndLogin = (state, action) => {
-    alert(action.payload);
+    alert(`Oops! Error:(${action.payload})`);
     state.error = action.payload;
 };
 
