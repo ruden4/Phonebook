@@ -8,20 +8,25 @@ export function HeaderUser() {
 
     const dispatch = useDispatch();
 
-    const handleLogOut = () => {
+    const {name}  = useSelector(getUser);
+    const isLoggedIn = useSelector(getIsLoggedIn);
+    console.log((isLoggedIn))
+
+    const logoutHandler = () => {
         dispatch(logOut())
     }
-
-    const { name } = useSelector(getUser);
-    const isLoggedIn = useSelector(getIsLoggedIn);
     
     return (
-    <div className={`${css.userWrap} animate__animated animate__flipInX`}>
-            <p className={css.userEmail}>{name}</p>
-            {isLoggedIn ? <button className={css.logOutBtn}
-                                    onClick={handleLogOut}
-                                    type="button"><Link to='/'>Log Out</Link></button> : 
+        <div className={`${css.userWrap} animate__animated animate__flipInX`}>
+            {isLoggedIn ? <><p className={css.userEmail}>{name}</p>
                 <button className={css.logOutBtn}
-                    type="button" ><Link to='/login'>Log In</Link></button>}
+                    onClick={logoutHandler}
+                    type="button"><Link to='/'>Log Out</Link></button></>
+                :
+                <button className={css.logOutBtn}
+                    type="button" ><Link to='/login'>Log In</Link></button>
+                }
+            
+
     </div>)
 }

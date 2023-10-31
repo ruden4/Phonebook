@@ -1,13 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 import css from './App.module.css';
-
 import Layout from './Layout';
 import Home from './Pages/Home';
 import Contacts from './Pages/Contacts';
 import LogIn from './Pages/LogIn';
 import Register from './Pages/Register';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "redux/Auth";
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser())
+  }, [dispatch]);
 
   return (
     <div className={css.container}>

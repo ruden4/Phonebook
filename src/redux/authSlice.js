@@ -1,5 +1,7 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { register, login, logOut, refreshUser, } from "./Auth";
+import {persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const handleFulfilledRegister = (state, action) => {
     alert(`Registration completed!`);
@@ -20,18 +22,19 @@ const handleFulfilledLogOut = (state, _) => {
     state.isLoggedIn = false;
 };
 
-const handlePendingRefresh = (state, _) => {
+const handlePendingRefresh = (state, action) => {
     state.isRefreshing = true;
+    state.user = action.payload;
 };
 
-const handleFulfilledRefresh = (state, action) => {
-    state.user = action.payload;
+const handleFulfilledRefresh = (state, _) => {
     state.isLoggedIn = true;
     state.isRefreshing = false;
 };
 
 const handleRejectedRefresh = (state, _) => {
     state.isRefreshing = false;
+    state.isLoggedIn = false;
 };
 
 const handleRejectedRegisterAndLogin = (state, action) => {
@@ -39,12 +42,20 @@ const handleRejectedRegisterAndLogin = (state, action) => {
     state.error = action.payload;
 };
 
+
+
 const initialState = {
     user: { name: null, email: null },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
     error: null,
+};
+
+const authPersistConfig = {
+    key: 'auth',
+    storage,
+    whitelist: ['token'],
 };
 
 const authSlice = createSlice({
@@ -55,14 +66,14 @@ const authSlice = createSlice({
             .addCase(register.fulfilled, handleFulfilledRegister)
             .addCase(login.fulfilled, handleFulfilledLogin)
             .addCase(logOut.fulfilled, handleFulfilledLogOut)
-            .addCase(refreshUser.fulfilled, handlePendingRefresh)
             .addCase(refreshUser.pending, handleFulfilledRefresh)
+            .addCase(refreshUser.fulfilled, handlePendingRefresh)
             .addCase(refreshUser.rejected, handleRejectedRefresh)
             .addMatcher(
                 isAnyOf(register.rejected, login.rejected),
                 handleRejectedRegisterAndLogin
             );
-    },
+    },    
 });
 
-export const authReducer = authSlice.reducer;
+export const authReducer = persistReducer(authPersistConfig, authSlice.reducer);
